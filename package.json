@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "pa11y": "^5.1.0"
+    "pa11y": "^5.1.0",
+    "puppeteer": "^1.11.0"
   }
 }

@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const url = require('url');  
 const querystring = require('querystring');  
 const pa11y = require('pa11y');
+const puppeteer = require('puppeteer');
 
 /*** config ***/
 var app = express();
@@ -27,7 +28,14 @@ app.get('/', async function (req, res) {
 
     if (req.query.websiteurl) {
         try{
-            await pa11y(req.query.websiteurl).then(results => {
+            const browser = await puppeteer.launch({
+                ignoreHTTPSErrors: true,
+                args: ['--no-sandbox']
+            });
+
+            await pa11y(req.query.websiteurl, {
+                browser: browser
+            }).then(results => {
                 res.render('accessibility', {name: req.query.websiteurl, result: results, url: formurl});
             });
         } catch(error){
