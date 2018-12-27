@@ -19,8 +19,13 @@ app.use(express.static(path.join(__dirname, 'public'), options));
 app.set('port', process.env.PORT || 3000);
 
 /*** handlebars template engine ***/
-app.engine('handlebars', hbs({defaultLayout: 'main'})); 
-app.set('view engine', 'handlebars');
+app.engine('.hbs', hbs({
+    extname: '.hbs', 
+    defaultLayout: 'main',
+    layoutsDir: 'views/layouts/',
+    partialsDir: 'views/partials/'
+})); 
+app.set('view engine', '.hbs');
 
 /*** routes ***/
 app.get('/', async function (req, res) {
