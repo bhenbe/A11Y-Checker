@@ -28,10 +28,7 @@ app.get('/', async function (req, res) {
 
     if (req.query.websiteurl) {
         try{
-            const browser = await puppeteer.launch({
-                ignoreHTTPSErrors: true,
-                args: ['--no-sandbox']
-            });
+            const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 
             await pa11y(req.query.websiteurl, {
                 browser: browser
