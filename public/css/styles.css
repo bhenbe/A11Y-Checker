@@ -222,4 +222,5 @@ header > form > button{
 
 .cards > code > p{
   margin: 0;
+  max-width: none;
 }
