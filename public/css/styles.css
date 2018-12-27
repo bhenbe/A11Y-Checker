@@ -1,0 +1,191 @@
+/*** global ***/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  --cLightGray: #f9f9f9;
+  --cMidGray: #eee;
+  --cDarkGray: #2B2D2F;
+  --cWhite: white;
+  --cGreen: #24A75C;
+  --fFamily: arial, sans-serif;
+  --fSizeBase: 1rem;
+
+  margin: 0;
+  padding: 0;
+}
+
+/*** print ***/
+@media print{
+  body > *:not(main){
+    display: none;
+  }
+  
+  a[href^="http"]:not([href*="mywebsite.com"])::after{
+    content: " (" attr(href) ")";
+  }
+}
+
+/*** accessibility ***/
+p{
+  max-width: 66ch;
+}
+
+.visually-hidden{
+  position: absolute !important;
+  height: 1px; 
+  width: 1px; 
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+  
+.visually-hidden a:focus,
+.visually-hidden input:focus,
+.visually-hidden button:focus { 
+  position:static; 
+  width:auto; 
+  height:auto;  
+}
+
+/*** typography ***/
+body {
+  font: 1rem / 1.5 var(--fFamily);
+}
+  
+p {
+  font-size: 1em;
+  margin-top: 0;
+}
+  
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.16em;
+  line-height: 1.1;
+  margin: .5em 0 0 0;
+}
+  
+h1 {
+  font-size: 2.4em;
+  margin-top: 0;
+}
+  
+h2 {
+  font-size: 2.1em;
+}
+  
+h3 {
+  font-size: 1.8em;
+}
+  
+h4 {
+  font-size: 1.5em;
+}
+  
+h5 {
+  font-size: 1.3em;
+}
+
+/*** form ***/
+input, 
+button{
+  height: 44px;
+  font-size: 1em;
+  font-family: var(--fFamily);
+  border-color: var(--cWhite);
+  border-radius: 8px;
+}
+
+button{
+  display: inline-block;
+  padding: .5rem 1.5rem;
+  background-color: var(--cGreen);
+  border-color: var(--cGreen);
+  color: var(--cWhite);
+  cursor: pointer;
+}
+
+button:hover{
+  border-color: var(--cWhite);
+}
+
+/*** layout ***/
+body{
+  background-color: var(--cLightGray);
+  color: var(--cDarkGray);
+}
+
+header{
+  background-color: var(--cDarkGray);
+  color: var(--cWhite);
+  display: flex;
+  flex-flow: row wrap;
+}
+
+header > form > label{
+  display: inline-block;
+}
+
+header > form > label,
+header > form > input,
+header > form > button{
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+@media(min-width: 40rem){
+  header{
+    flex-flow: column wrap;
+  }
+  header > form > label,
+  header > form > button{
+    width: auto;
+    margin-bottom: 0;
+  }
+  header > form > input{
+    width: 320px;
+    margin-bottom: 0;
+  }
+}
+
+.container{
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.info{
+  padding: 1em 0;
+}
+
+.info p{
+  margin: 0;
+}
+
+/*** cards ***/
+.cards{
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cards > h2{
+  margin: 0 0 .5em 0;
+  font-size: 1em;
+}
+
+.cards > code{
+  display: block;
+  background-color: var(--cLightGray);
+  border: 1px solid var(--cMidGray);
+  padding: 1rem;
+}
+
+.cards > code > p{
+  margin: 0;
+}

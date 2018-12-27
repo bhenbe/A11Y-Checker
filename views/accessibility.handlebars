@@ -1,0 +1,34 @@
+
+<header>
+
+    <form method="get" action="{{url}}" class="container">
+
+        <label for="websiteurl">Website url</label>
+        <input type="text" id="websiteurl" name="websiteurl" value="{{name}}">
+
+        <button type="submit">Check accessibility</button>
+
+    </form>
+
+</header>
+
+<div class="container">
+
+    <section class="info">
+        <p>Page: {{result.documentTitle}}</p>
+        <p>URL: {{result.pageUrl}}</p>
+    </section>
+
+    <main>
+        {{#each result.issues}}
+        <article class="cards">
+            <h2>{{this.selector}}</h2>
+            <p>{{this.message}}</p>
+            <code>
+                <p>{{this.context}}</p>
+            </code>
+        </article>
+        {{/each}}
+    </main>
+
+</div>

@@ -1,0 +1,22 @@
+
+<header>
+
+    <form method="get" action="{{url}}" class="container">
+
+        <label for="websiteurl">Website url</label>
+        <input type="text" id="websiteurl" name="websiteurl" value="{{name}}">
+
+        <button type="submit">Check accessibility</button>
+
+    </form>
+
+</header>
+
+<div class="container">
+
+    <section class="info">
+        <p>Une erreur est survenue en tentant d'accéder à l'URL: {{name}}</p>
+        <p>Message d'erreur: {{message}}</p>
+    </section>
+
+</div>
