@@ -31,7 +31,9 @@ app.get('/', async function (req, res) {
             const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 
             await pa11y(req.query.websiteurl, {
-                browser: browser
+                browser: browser,
+                includeNotices: true,
+                includeWarnings: true
             }).then(results => {
                 res.render('accessibility', {name: req.query.websiteurl, result: results, url: formurl});
             });

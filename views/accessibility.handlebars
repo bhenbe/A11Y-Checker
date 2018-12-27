@@ -21,8 +21,9 @@
 
     <main>
         {{#each result.issues}}
-        <article class="cards">
+        <article class="cards cards-type-{{this.type}}">
             <h2>{{this.selector}}</h2>
+            <span>{{this.type}}</span>
             <p>{{this.message}}</p>
             <code>
                 <p>{{this.context}}</p>

@@ -15,6 +15,10 @@ body{
   --fFamily: arial, sans-serif;
   --fSizeBase: 1rem;
 
+  --cNotice: blue;
+  --cWarning: orange;
+  --cError: red;
+
   margin: 0;
   padding: 0;
 }
@@ -168,10 +172,40 @@ header > form > button{
 /*** cards ***/
 .cards{
   background-color: white;
+  border: 1px solid var(--cMidGray);
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,.1);
   padding: 2rem;
   margin-bottom: 2rem;
+}
+
+.cards > span{
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+.cards-type-warning{
+  border-color: var(--cWarning);
+}
+
+.cards-type-error{
+  border-color: var(--cError);
+}
+
+.cards-type-notice{
+  border-color: var(--cNotice);
+}
+
+.cards-type-warning > span{
+  color: var(--cWarning);
+}
+
+.cards-type-error > span{
+  color: var(--cError);
+}
+
+.cards-type-notice > span{
+  color: var(--cNotice);
 }
 
 .cards > h2{
