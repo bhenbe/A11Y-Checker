@@ -1,4 +1,3 @@
-
 <header>
 
     <form method="get" action="{{url}}" class="container">
@@ -15,13 +14,22 @@
 <div class="container">
 
     <section class="info">
-        <p>Page: {{result.documentTitle}}</p>
-        <p>URL: {{result.pageUrl}}</p>
+        <p><b>Page:</b> {{result.documentTitle}}</p>
+        <p><b>URL:</b> {{result.pageUrl}}</p>
     </section>
 
     <main>
+        <div class="tabs">
+            <ul>
+                <li><a href="#" v-bind:class="{ active: showTab == 'all' }" v-on:click.prevent="tabToggle('all')">All</a></li>
+                <li><a href="#" v-bind:class="{ active: showTab == 'notices' }" v-on:click.prevent="tabToggle('notices')">Notices</a></li>
+                <li><a href="#" v-bind:class="{ active: showTab == 'warnings' }" v-on:click.prevent="tabToggle('warnings')">Warnings</a></li>
+                <li><a href="#" v-bind:class="{ active: showTab == 'errors' }" v-on:click.prevent="tabToggle('errors')">Errors</a></li>
+            </ul>
+        </div>
+
         {{#each result.issues}}
-        <article class="cards cards-type-{{this.type}}">
+        <article class="cards cards-type-{{this.type}}" v-show="showCard('{{this.type}}')">
             <h2>{{this.selector}}</h2>
             <span>{{this.type}}</span>
             <p>{{this.message}}</p>

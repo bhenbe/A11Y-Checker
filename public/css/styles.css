@@ -10,6 +10,7 @@ body{
   --cLightGray: #f9f9f9;
   --cMidGray: #eee;
   --cDarkGray: #2B2D2F;
+  --cBaseGray: #999;
   --cWhite: white;
   --cGreen: #24A75C;
   --fFamily: arial, sans-serif;
@@ -92,6 +93,11 @@ h5 {
   font-size: 1.3em;
 }
 
+a{
+  color: var(--cDarkGray);
+  text-decoration: underline;
+}
+
 /*** form ***/
 input, 
 button{
@@ -169,10 +175,49 @@ header > form > button{
   margin: 0;
 }
 
+/*** tabs ***/
+.tabs{
+  border-bottom: 1px solid var(--cMidGray);
+  margin-bottom: 1rem;
+}
+
+.tabs > ul{
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs > ul > li{
+  display: inline-block;
+  margin-right: .5rem;
+}
+
+.tabs > ul > li > a{
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  padding: .5rem 1.5rem;
+  border-radius: .5rem .5rem 0 0;
+  background-color: var(--cMidGray);
+}
+
+.tabs > ul > li > a:hover{
+  background-color: var(--cDarkGray);
+  color: var(--cWhite);
+  text-decoration: underline;
+}
+
+.tabs > ul > li > a.active{
+  background-color: var(--cDarkGray);
+  color: var(--cWhite);
+}
+
 /*** cards ***/
 .cards{
   background-color: white;
-  border: 1px solid var(--cMidGray);
+  border: 1px solid var(--cBaseGray);
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,.1);
   padding: 2rem;
