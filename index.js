@@ -29,7 +29,7 @@ app.set('view engine', '.hbs');
 
 /*** routes ***/
 app.get('/', async function (req, res) {
-    var formurl = 'http://' + req.headers.host;
+    var formurl = 'https://' + req.headers.host;
 
     if (req.query.websiteurl) {
         try{
