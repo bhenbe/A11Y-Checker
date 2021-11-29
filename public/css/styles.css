@@ -282,6 +282,7 @@ span.label{
   background-color: var(--cLightGray);
   border: 1px solid var(--cMidGray);
   padding: 1rem;
+  overflow-x: scroll;
 }
 
 .cards > code > p{

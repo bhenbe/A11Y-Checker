@@ -19,7 +19,7 @@ var app = new Vue({
         this.lengthErrors = this.countErrors();
         this.lengthWarnings = this.countWarnings();
         this.lengthNotices = this.countNotices();
-        this.lengthAll  = this.lengthErrors + this.lengthWarnings + this.lengthNotices;
+        this.lengthAll  = this.countAll();
     },
     methods: {
         tabToggle: function (tabSelected) {
@@ -65,22 +65,16 @@ var app = new Vue({
             return false;
         },
         countNotices: function () {
-            let elements = document.getElementsByClassName('cards-type-notice');
-            if (elements)
-                return elements.length;
-            return 0;
+            return document.getElementById('main').getAttribute('data-notices');
         },
         countWarnings: function () {
-            let elements = document.getElementsByClassName('cards-type-warning');
-            if (elements)
-                return elements.length;
-            return 0;
+            return document.getElementById('main').getAttribute('data-warnings');
         },
         countErrors: function () {
-            let elements = document.getElementsByClassName('cards-type-error');
-            if (elements)
-                return elements.length;
-            return 0;
+            return document.getElementById('main').getAttribute('data-errors');
+        },
+        countAll: function () {
+            return document.getElementById('main').getAttribute('data-all');
         }
     }
 });
