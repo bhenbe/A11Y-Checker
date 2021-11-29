@@ -10,10 +10,10 @@
     <main>
         <div class="tabs">
             <ul>
-                <li><a href="#" v-bind:class="{ active: showTab == 'all' }" v-on:click.prevent="tabToggle('all')">All</a></li>
-                <li><a href="#" v-bind:class="{ active: showTab == 'notices' }" v-on:click.prevent="tabToggle('notices')">Notices</a></li>
-                <li><a href="#" v-bind:class="{ active: showTab == 'warnings' }" v-on:click.prevent="tabToggle('warnings')">Warnings</a></li>
-                <li><a href="#" v-bind:class="{ active: showTab == 'errors' }" v-on:click.prevent="tabToggle('errors')">Errors</a></li>
+                <li><a href="#" v-bind:class="{ active: showTab == 'all' }" v-on:click.prevent="tabToggle('all')">All <span class="label" v-show="lengthAll > 0">${lengthAll}</span></a></li>
+                <li><a href="#" v-bind:class="{ active: showTab == 'notices' }" v-on:click.prevent="tabToggle('notices')">Notices <span class="label" v-show="lengthNotices > 0">${lengthNotices}</span></a></li>
+                <li><a href="#" v-bind:class="{ active: showTab == 'warnings' }" v-on:click.prevent="tabToggle('warnings')">Warnings <span class="label" v-show="lengthWarnings > 0">${lengthWarnings}</span></a></li>
+                <li><a href="#" v-bind:class="{ active: showTab == 'errors' }" v-on:click.prevent="tabToggle('errors')">Errors <span class="label" v-show="lengthErrors > 0">${lengthErrors}</span></a></li>
             </ul>
         </div>
 

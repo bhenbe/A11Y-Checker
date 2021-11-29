@@ -7,18 +7,18 @@ html {
 }
 
 body{
-  --cLightGray: #f9f9f9;
-  --cMidGray: #eee;
-  --cDarkGray: #2B2D2F;
-  --cBaseGray: #999;
-  --cWhite: white;
-  --cGreen: #24A75C;
+  --cLightGray: hsl(0, 0%, 98%);
+  --cMidGray: hsl(0, 0%, 93%);
+  --cDarkGray: hsl(210, 4%, 18%);
+  --cBaseGray: hsl(0, 0%, 60%);
+  --cWhite: hsl(0, 0%, 100%);
+  --cGreen: hsl(146, 65%, 40%);
   --fFamily: arial, sans-serif;
-  --fSizeBase: 1rem;
+  --fSizeBase: 1.125rem;
 
-  --cNotice: blue;
-  --cWarning: orange;
-  --cError: red;
+  --cNotice: hsl(240, 100%, 50%);
+  --cWarning: hsl(39, 100%, 50%);
+  --cError: hsl(0, 100%, 50%);
 
   margin: 0;
   padding: 0;
@@ -58,7 +58,7 @@ p{
 
 /*** typography ***/
 body {
-  font: 1rem / 1.5 var(--fFamily);
+  font: 1.125rem / 1.5 sans-serif;
 }
   
 p {
@@ -103,22 +103,24 @@ input,
 button{
   height: 44px;
   font-size: 1em;
-  font-family: var(--fFamily);
-  border-color: var(--cWhite);
-  border-radius: 8px;
+  font-family: inherit;
+  border: none;
 }
 
 button{
   display: inline-block;
   padding: .5rem 1.5rem;
-  background-color: var(--cGreen);
-  border-color: var(--cGreen);
-  color: var(--cWhite);
+  background-color: hsl(146, 65%, 40%);;
+  border-color: hsl(146, 65%, 40%);;
+  color: hsl(0, 0%, 100%);
+  border-radius: none;
+  border: none;
   cursor: pointer;
+  transition: background-color .2s;
 }
 
 button:hover{
-  border-color: var(--cWhite);
+  background-color: hsl(146, 65%, 30%);;
 }
 
 /*** layout ***/
@@ -135,12 +137,17 @@ header{
 }
 
 header > form > label{
-  display: inline-block;
+  display: block;
+}
+
+header > form > div{
+  display: flex;
+  flex-flow: column wrap;
 }
 
 header > form > label,
-header > form > input,
-header > form > button{
+header > form > div > input,
+header > form > div > button{
   width: 100%;
   margin-bottom: .5rem;
 }
@@ -149,14 +156,14 @@ header > form > button{
   header{
     flex-flow: column wrap;
   }
-  header > form > label,
-  header > form > button{
-    width: auto;
-    margin-bottom: 0;
+  header > form > div{
+    flex-flow: row nowrap;
   }
-  header > form > input{
-    width: 320px;
-    margin-bottom: 0;
+  header > form > div > input{
+    width: 100%;
+  }
+  header > form > div > button{
+    max-width: 240px;
   }
 }
 
@@ -192,6 +199,18 @@ header > form > button{
 .tabs > ul > li{
   display: inline-block;
   margin-right: .5rem;
+}
+
+span.label{
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background-color: hsl(210, 4%, 18%);
+  color:hsl(0, 0%, 100%);
+  margin-left: 4px;
+  height: auto;
 }
 
 .tabs > ul > li > a{
