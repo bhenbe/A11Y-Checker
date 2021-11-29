@@ -29,7 +29,7 @@ app.set('view engine', '.hbs');
 
 /*** routes ***/
 app.get('/', async function (req, res) {
-    var formurl = 'https://' + req.headers.host;
+    const formurl = 'https://' + req.headers.host;
 
     if (req.query.websiteurl) {
         try{
@@ -52,5 +52,5 @@ app.get('/', async function (req, res) {
 
 /*** listen ***/
 app.listen(app.get('port'),  function () {
-    console.log('Hello express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.' );
+    //console.log('Hello express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.' );
 });

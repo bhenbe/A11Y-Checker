@@ -22,9 +22,11 @@
             <h2>{{this.selector}}</h2>
             <span>{{this.type}}</span>
             <p>{{this.message}}</p>
+            {{#if this.context}}
             <code>
                 <p>{{this.context}}</p>
             </code>
+            {{/if}}
         </article>
         {{/each}}
     </main>
