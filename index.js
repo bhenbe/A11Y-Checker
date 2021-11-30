@@ -85,14 +85,18 @@ app.get('/api/', async function (req, res) {
                 result.name = req.query.websiteurl;
                 result.issues = results.issues;
 
-                res.render('api', {result: JSON.stringify(result), layout: 'api'});
+                res.end(JSON.stringify(result));
+
+                //res.render('api', {result: JSON.stringify(result), layout: 'api'});
             });
         } catch(error){
             res.render('error', {name: req.query.websiteurl, message: error, url: formurl});
         }
     } else {
         res.setHeader('Content-Type', 'application/json');
-        res.render('api', {result: JSON.stringify(result), layout: 'api'});
+        //res.render('api', {result: JSON.stringify(result), layout: 'api'});
+
+        res.end(JSON.stringify(result));
     }
 });
 
