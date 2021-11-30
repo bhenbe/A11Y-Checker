@@ -29,7 +29,7 @@ app.set('view engine', '.hbs');
 
 /*** routes ***/
 app.get('/', async function (req, res) {
-    const formurl = 'http://' + req.headers.host;
+    const formurl = 'https://' + req.headers.host;
     let iNotice = 0, iWarning = 0, iError = 0, iAll = 0;
 
     if (req.query.websiteurl) {
@@ -68,7 +68,8 @@ app.get('/', async function (req, res) {
 });
 
 app.get('/api/', async function (req, res) {
-    const formurl = 'http://' + req.headers.host;
+    const formurl = 'https://' + req.headers.host;
+    let result = {name: '', issues: [], url: formurl};
 
     if (req.query.websiteurl) {
         try{
@@ -80,14 +81,18 @@ app.get('/api/', async function (req, res) {
                 includeWarnings: false
             }).then(results => {
                 res.setHeader('Content-Type', 'application/json');
-                res.render('api', {name: req.query.websiteurl, result: results, url: formurl, layout: 'api'});
+
+                result.name = req.query.websiteurl;
+                result.issues = results.issues;
+
+                res.render('api', {result: JSON.stringify(result), layout: 'api'});
             });
         } catch(error){
             res.render('error', {name: req.query.websiteurl, message: error, url: formurl});
         }
     } else {
         res.setHeader('Content-Type', 'application/json');
-        res.render('api', {name: '', result: '', url: formurl, layout: 'api'});
+        res.render('api', {result: JSON.stringify(result), layout: 'api'});
     }
 });
 
