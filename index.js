@@ -1,7 +1,7 @@
 /*** requires ***/
 const express = require('express');
 const path = require('path');
-const hbs = require('express-handlebars'); 
+const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');  
 const url = require('url');  
 const querystring = require('querystring');  
@@ -19,13 +19,14 @@ app.use(express.static(path.join(__dirname, 'public'), options));
 app.set('port', process.env.PORT || 3000);
 
 /*** handlebars template engine ***/
-app.engine('.hbs', hbs({
-    extname: '.hbs', 
+app.engine('.hbs', handlebars.engine({
+    extname: '.hbs',
     defaultLayout: 'main',
-    layoutsDir: 'views/layouts/',
-    partialsDir: 'views/partials/'
-})); 
+    layoutsDir: __dirname + '/views/layouts',
+    partialsDir: __dirname + '/views/partials',
+}));
 app.set('view engine', '.hbs');
+app.set('views', './views');
 
 /*** routes ***/
 app.get('/', async function (req, res) {

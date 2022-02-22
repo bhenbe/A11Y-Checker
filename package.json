@@ -1,6 +1,6 @@
 {
   "name": "express-project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^6.0.2",
     "pa11y": "^5.1.0",
     "puppeteer": "^1.11.0"
   }
